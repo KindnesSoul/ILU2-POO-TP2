@@ -50,10 +50,12 @@ public class BoundaryEmmenager {
 		int effetPotionMin=0;
 		int effetPotionMax=1;
 		while (effetPotionMin<effetPotionMax) {
-			question.append("Quelle est la force de la potion la plus faible que vous produisez");
-			effetPotionMin = Clavier.entrerEntier(question.toString());
-			question.append("Quelle est la force de la potion la plus forte que vous produisez");
-			effetPotionMax = Clavier.entrerEntier(question.toString());
+			StringBuilder question1 = new StringBuilder();
+			question1.append("Quelle est la force de la potion la plus faible que vous produisez");
+			effetPotionMin = Clavier.entrerEntier(question1.toString());
+			StringBuilder question2 = new StringBuilder();
+			question2.append("Quelle est la force de la potion la plus forte que vous produisez");
+			effetPotionMax = Clavier.entrerEntier(question2.toString());
 			if (effetPotionMin < effetPotionMax) {
 				System.out.println("Attention Druide,vous vos etes trompé entre le minimum et maximum");
 			}
