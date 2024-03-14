@@ -16,7 +16,7 @@ class ControlVerifierIdentiteTest {
 	@BeforeEach
 	public void initialiserSituation() {
 		System.out.println("initialisation...");
-		village=new Village("le village des iréductibles",10,5);
+		village=new Village("le village des irÃ©ductibles",10,5);
 		abraracourcix= new Chef("Abraracourcix",10,village);
 		village.setChef(abraracourcix);
 		}
@@ -26,7 +26,7 @@ class ControlVerifierIdentiteTest {
 	@Test
 	public void testControlVerifierIdentite() {
 		ControlVerifierIdentite controlVerifierIdentite= new ControlVerifierIdentite(village);
-		assertNotNull(controlVerifierIdentite,"contructeur ne prévoit pas de Null");
+		assertNotNull(controlVerifierIdentite,"contructeur ne prÃ©voit pas de Null");
 	}
 
 }

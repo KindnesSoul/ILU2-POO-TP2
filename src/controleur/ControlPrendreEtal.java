@@ -18,7 +18,7 @@ public class ControlPrendreEtal {
 	}
 
 	public int prendreEtal(String nomVendeur, String produit, int nbProduit) {
-		int numeroEtal = -1;
+		int numeroEtal =0;
 		numeroEtal=village.installerVendeur(village.trouverHabitant(nomVendeur), produit, nbProduit);
 		return numeroEtal;
 		

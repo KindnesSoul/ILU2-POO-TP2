@@ -15,5 +15,8 @@ public class ControlAcheterProduit {
 		this.controlTrouverEtalVendeur = controlTrouverEtalVendeur;
 	}
 
+	public etal ctrlcontientproduit(String produit) {
+		return (contientProduit(produit));
+	}
 	//TODO a completer
 }

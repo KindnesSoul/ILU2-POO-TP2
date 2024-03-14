@@ -29,7 +29,7 @@ class ControlTrouverEtalVendeurTest {
 		ControlTrouverEtalVendeur controlTrouverEtalVendeur = new ControlTrouverEtalVendeur(village);
 		Gaulois bob =new Gaulois("bob",3);
 		village.installerVendeur(bob,"patate", 3);
-		assertEquals(controlTrouverEtalVendeur.trouverEtalVendeur("bob"),(bob,"patate", 3));
+		assertEquals(controlTrouverEtalVendeur.trouverEtalVendeur("bob"),bob);
 		
 	}
 

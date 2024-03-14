@@ -69,10 +69,10 @@ public class Village {
 	/**
 	 * 
 	 * @param vendeur   : un gaulois habitant le village
-	 * @param produit   : nom du produit à vendre
-	 * @param nbProduit : nombre de produit à vendre
-	 * @return le numéro de l'étal où c'est installé le vendeur ou -1 s'il n'en
-	 *         a pas trouvé
+	 * @param produit   : nom du produit Ã  vendre
+	 * @param nbProduit : nombre de produit Ã  vendre
+	 * @return le numÃ©ro de l'Ã©tal oÃ¹ c'est installÃ© le vendeur ou -1 s'il n'en
+	 *         a pas trouvÃ©
 	 */
 	public int installerVendeur(Gaulois vendeur, String produit,
 			int nbProduit) {
@@ -134,8 +134,8 @@ public class Village {
 
 		/**
 		 * 
-		 * @return le numéro de l'étal où c'est installé le vendeur ou -1 s'il
-		 *         n'en a pas trouvé
+		 * @return le numÃ©ro de l'Ã©tal oÃ¹ c'est installÃ© le vendeur ou -1 s'il
+		 *         n'en a pas trouvÃ©
 		 */
 		private int trouverEtalLibre() {
 			int indiceEtalLibre = -1;
@@ -202,25 +202,28 @@ public class Village {
 		/**
 		 * 
 		 * @return renvoie un tableau contenant les informations de tous les
-		 *         étals du marché. Chaque étal est décrit sur 3 cases du
+		 *         Ã©tals du marchÃ©. Chaque Ã©tal est dÃ©crit sur 3 cases du
 		 *         tableau successives : le nom du vendeur, le nombre de produit
-		 *         qu'il lui reste à vendre, le type de produit à vendre
+		 *         qu'il lui reste Ã  vendre, le type de produit Ã  vendre
 		 */
 		private String[] donnerEtat() {
-			int tailleTableau = getNbEtalsOccupe() * 3;
-			String[] donnees = new String[tailleTableau];
+			int tailleTableau = getNbEtalsOccupe();
+			String[] donnees = new String[tailleTableau*3];
 			int j = 0;
-			for (int i = 0; i < etals.length; i++) {
+			for (int i = 0; i< tailleTableau; i++) {
 				Etal etal = etals[i];
 				if (etal.isEtalOccupe()) {
 					Gaulois vendeur = etal.getVendeur();
 					int nbProduit = etal.getQuantite();
-					donnees[j] = vendeur.getNom();
-					j++;
+					if (vendeur.getNom()==null) {
+					donnees[j] = vendeur.getNom();}
+					else {donnees[j]=" Null " ;}
+				    j++;
 					donnees[j] = String.valueOf(nbProduit);
 					j++;
 					donnees[j] = etal.getProduit();
 					j++;
+					
 				}
 			}
 			return donnees;
