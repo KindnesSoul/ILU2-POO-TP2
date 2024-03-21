@@ -60,7 +60,10 @@ public class Village {
 		}
 		return donnees;
 	}
-
+	public boolean testProduitExiste(String produit) {
+		return ProduitExiste(produit);
+	}
+	
 	////////////////////// GESTION classe interne ///////////////////////
 	public int donnerNbEtal() {
 		return marche.getNbEtal();
@@ -113,6 +116,7 @@ public class Village {
 	public String[] donnerEtatMarche() {
 		return marche.donnerEtat();
 	}
+	
 
 	////////////////////// Classe Interne ///////////////////////
 	private static class Marche {
@@ -215,9 +219,7 @@ public class Village {
 				if (etal.isEtalOccupe()) {
 					Gaulois vendeur = etal.getVendeur();
 					int nbProduit = etal.getQuantite();
-					if (vendeur.getNom()==null) {
-					donnees[j] = vendeur.getNom();}
-					else {donnees[j]=" Null " ;}
+					donnees[j] = vendeur.getNom();
 				    j++;
 					donnees[j] = String.valueOf(nbProduit);
 					j++;
@@ -228,6 +230,21 @@ public class Village {
 			}
 			return donnees;
 		}
+		 public boolean ProduitExiste(String produit) {
+			int tailleTableau = getNbEtalsOccupe();
+			boolean etat=false;
+			for (int i = 0; i< tailleTableau; i++) {
+				
+				Etal etal = etals[i];
+				if (etal.isEtalOccupe()) {
+					if (etal.getProduit()==produit) {
+						etat=true;}
+				}
+			}
+					return etat;
+		}
 	}
+
+	
 
 }
