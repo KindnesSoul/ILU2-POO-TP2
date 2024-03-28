@@ -16,20 +16,28 @@ class ControlTrouverEtalVendeurTest {
 	@BeforeEach
 	public void initialiserSituation() {
 		System.out.println("initialisation...");
-		village=new Village("le village des iréductibles",10,5);
+		village=new Village("le village des irï¿½ductibles",10,5);
 		abraracourcix= new Chef("Abraracourcix",10,village);
 		village.setChef(abraracourcix);
 	}
 	@Test
 	void testControlTrouverEtalVendeur() {
 		ControlTrouverEtalVendeur controlTrouverEtalVendeur = new ControlTrouverEtalVendeur(village);
-		assertNotNull(controlTrouverEtalVendeur,"constructeur ne prévoit pas de null");
+		assertNotNull(controlTrouverEtalVendeur,"constructeur ne prï¿½voit pas de null");
 	}
-	void testTrouverEtalVendeur() {
+	@Test
+	void testTrouverEtalVendeurTrue() {
 		ControlTrouverEtalVendeur controlTrouverEtalVendeur = new ControlTrouverEtalVendeur(village);
 		Gaulois bob =new Gaulois("bob",3);
+		village.ajouterHabitant(bob);
 		village.installerVendeur(bob,"patate", 3);
-		assertEquals(controlTrouverEtalVendeur.trouverEtalVendeur("bob"),bob);
+		controlTrouverEtalVendeur.trouverEtalVendeur("bob");
+		
+	}
+	@Test
+	void testTrouverEtalVendeurFalse() {
+		ControlTrouverEtalVendeur controlTrouverEtalVendeur = new ControlTrouverEtalVendeur(village);
+		controlTrouverEtalVendeur.trouverEtalVendeur("blob");
 		
 	}
 

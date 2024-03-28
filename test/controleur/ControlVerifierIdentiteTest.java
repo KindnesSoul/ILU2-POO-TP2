@@ -24,9 +24,19 @@ class ControlVerifierIdentiteTest {
 
 
 	@Test
-	public void testControlVerifierIdentite() {
+	void testControlVerifierIdentite() {
 		ControlVerifierIdentite controlVerifierIdentite= new ControlVerifierIdentite(village);
 		assertNotNull(controlVerifierIdentite,"contructeur ne prévoit pas de Null");
+		
 	}
-
+	@Test
+	void testVerifierIdentiteTrue() {
+		ControlVerifierIdentite controlVerifierIdentite= new ControlVerifierIdentite(village);
+		controlVerifierIdentite.verifierIdentite("Abraracourcix");
+	}
+	@Test
+	void testVerifierIdentiteFalse() {
+		ControlVerifierIdentite controlVerifierIdentite= new ControlVerifierIdentite(village);
+		controlVerifierIdentite.verifierIdentite("Abra");
+	}
 }
