@@ -31,14 +31,16 @@ public class BoundaryAcheterProduit {
 				choixUtilisateur = Clavier.entrerEntier(question.toString());
 				switch (choixUtilisateur) {
 				case 1:
-					System.out.println("Panoramix se déplace jusqu'à l'étal du vendeur Bonemine");
+					System.out.println("Panoramix se déplace jusqu'à l'étal du vendeur "+listeCommercant[0].getNom());
 					
 				}
 	
 			}while(choixUtilisateur != 1);
 			question.append("Bonjour Panoramix Combien de fleurs voulez-vous acheter ?");
 			nbProduit= Clavier.entrerEntier(question.toString());
-			if (!controlAcheterProduit.)
+			if (!controlAcheterProduit.quantiterProduitSufisant(nomProduit, nbProduit)) {
+				System.out.println("désoler mais "+listeCommercant[0].getNom()+" n'a plus assez de"+nomProduit);
+			}
 		}
 	}
 	}

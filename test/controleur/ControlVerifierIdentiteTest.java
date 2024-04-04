@@ -32,11 +32,11 @@ class ControlVerifierIdentiteTest {
 	@Test
 	void testVerifierIdentiteTrue() {
 		ControlVerifierIdentite controlVerifierIdentite= new ControlVerifierIdentite(village);
-		controlVerifierIdentite.verifierIdentite("Abraracourcix");
+		assert(controlVerifierIdentite.verifierIdentite("Abraracourcix"));
 	}
 	@Test
 	void testVerifierIdentiteFalse() {
 		ControlVerifierIdentite controlVerifierIdentite= new ControlVerifierIdentite(village);
-		controlVerifierIdentite.verifierIdentite("Abra");
+		assertEquals(controlVerifierIdentite.verifierIdentite("Abra"),false);
 	}
 }

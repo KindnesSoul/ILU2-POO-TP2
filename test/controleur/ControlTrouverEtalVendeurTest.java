@@ -31,13 +31,13 @@ class ControlTrouverEtalVendeurTest {
 		Gaulois bob =new Gaulois("bob",3);
 		village.ajouterHabitant(bob);
 		village.installerVendeur(bob,"patate", 3);
-		controlTrouverEtalVendeur.trouverEtalVendeur("bob");
+		assertNotNull(controlTrouverEtalVendeur.trouverEtalVendeur("bob"));
 		
 	}
 	@Test
 	void testTrouverEtalVendeurFalse() {
 		ControlTrouverEtalVendeur controlTrouverEtalVendeur = new ControlTrouverEtalVendeur(village);
-		controlTrouverEtalVendeur.trouverEtalVendeur("blob");
+		assertEquals  (controlTrouverEtalVendeur.trouverEtalVendeur("blob"),null);
 		
 	}
 
